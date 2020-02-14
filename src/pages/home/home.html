@@ -13,7 +13,7 @@
 
   <div>
     <ion-list [hidden]="todoList?.length == 0" *ngFor="let todo of todoList; let i = index">
-      <ion-card class="card">
+      <ion-card class="card" (click)="onClick(todo)">
         <ion-card-header class="rowHeader">
           <b>{{todo.title}}</b>
         </ion-card-header>
@@ -47,7 +47,8 @@
         <ion-row class="footer">
           <ion-col col-1></ion-col>
           <ion-col col-5 class="rowFirst">
-            <p>Status:<b color="black">Incomplete</b></p>
+            <div *ngIf="todo.isChecked"><p >Status:<b color="black">Complete</b></p></div>
+            <div *ngIf="!todo.isChecked"><p >Status:<b color="black">Incomplete</b></p></div>
           </ion-col>
 
           <ion-col col-4>
@@ -55,7 +56,7 @@
           </ion-col>
 
           <ion-col col-1>
-            <ion-checkbox mode="ios"></ion-checkbox>
+            <ion-checkbox mode="ios" [(ngModel)]="todo.isChecked" (ionChange)="check(todo.isChecked)"></ion-checkbox>
           </ion-col>
         </ion-row>
       </ion-card>

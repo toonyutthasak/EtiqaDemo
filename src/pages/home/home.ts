@@ -5,6 +5,8 @@ import { ToDo } from '../../providers/database/data/model';
 import { DatabaseProvider } from '../../providers/database/database';
 import { ToDoModel } from '../../providers/database/data/todolist';
 import * as moment from 'moment';
+import { } from '../create/create';
+import { ToDoDetailPage } from '../to-do-detail/to-do-detail';
 
 @Component({
   selector: 'page-home',
@@ -12,6 +14,7 @@ import * as moment from 'moment';
 })
 export class HomePage {
   creationPage: any = CreatePage;
+  todoDetail: any = ToDoDetailPage;
   todoList: any = [];
 
   @ViewChild(Refresher) refresher: Refresher;
@@ -56,13 +59,13 @@ export class HomePage {
 
           if (diff < 0) {
             remaining = '0 minutes'
-          }else{
+          } else {
             let d = moment.duration(diff);
             remaining = Math.floor(d.asHours()) + " hours " + moment.utc(diff).format("mm") + " minutes";
           }
 
 
-          let todo = new ToDoModel(item.title, item.start, item.end, remaining)
+          let todo = new ToDoModel(item.title, item.start, item.end, remaining, false)
           todoList.push(todo);
         }
         return Promise.resolve(todoList)
@@ -92,5 +95,16 @@ export class HomePage {
       });
   }
 
+  check(check: boolean) {
+    if (check == false) {
+      this.todoList.isChecked = true
+    } else {
+      this.todoList.isChecked = false
+    }
+  }
 
+  onClick(todoInfo: any) {
+    console.log(todoInfo);
+    this.navCtrl.push(this.todoDetail, todoInfo)
+  }
 }

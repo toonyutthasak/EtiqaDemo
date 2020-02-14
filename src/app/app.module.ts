@@ -12,13 +12,15 @@ import { CreatePage } from '../pages/create/create';
 import { DatabaseProvider } from '../providers/database/database';
 import { SQLite} from '@ionic-native/sqlite';
 import { SQLitePorter } from '@ionic-native/sqlite-porter';
+import { ToDoDetailPage } from '../pages/to-do-detail/to-do-detail';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     TabsPage,
-    CreatePage
+    CreatePage,
+    ToDoDetailPage
   ],
   imports: [
     BrowserModule,
@@ -29,7 +31,8 @@ import { SQLitePorter } from '@ionic-native/sqlite-porter';
     MyApp,
     HomePage,
     TabsPage,
-    CreatePage
+    CreatePage,
+    ToDoDetailPage
   ],
   providers: [
     StatusBar,

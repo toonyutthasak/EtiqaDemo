@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>To-Do List Detail</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div>
+    <ion-row class="rowHeader">
+      <b>To-Do Title</b>
+    </ion-row>
+    <ion-row>
+      <ion-item class="borderedInput">
+        <p>{{todo.title}}</p>
+      </ion-item>
+    </ion-row>
+
+    <ion-row class="rowHeader">
+      <b>Start Date</b>
+    </ion-row>
+
+    <ion-row class="rowHeader">
+      <ion-item class="borderedInputSmall">
+        <p>{{todo.start}}</p>
+      </ion-item>
+    </ion-row>
+
+    <ion-row class="rowHeader">
+      <b>Estimate End Date</b>
+    </ion-row>
+
+    <ion-row class="rowHeader">
+      <ion-item class="borderedInputSmall">
+        <p>{{todo.end}}</p>
+      </ion-item>
+    </ion-row>
+  </div>
+
+</ion-content>

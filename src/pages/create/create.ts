@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Nav } from 'ionic-angular';
 import { ToDo } from '../../providers/database/data/model';
 import { DatabaseProvider } from '../../providers/database/database';
 import { SQLiteObject } from '@ionic-native/sqlite';
@@ -26,7 +26,7 @@ export class CreatePage {
   };
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    private databaseP: DatabaseProvider) {
+    private databaseP: DatabaseProvider,private nav:Nav) {
   }
 
   ionViewDidLoad() {
@@ -37,6 +37,7 @@ export class CreatePage {
     console.log(this.todo);
     let sqlObj = this.databaseP.getSQLiteObject();
     this.upsertToDo(this.todo,sqlObj);
+    this.nav.pop()
   }
 
   upsertToDo(a: ToDo,sqlObj:SQLiteObject) {
