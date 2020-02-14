@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>To-Do List</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-refresher (ionRefresh)="refreshPage()">
+    <ion-refresher-content pullingIcon="md-arrow-down" pullingText="pull to refresh" refreshingSpinner="circles"
+      refreshingText="refreshing">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <div>
+    <ion-list [hidden]="todoList?.length == 0" *ngFor="let todo of todoList; let i = index">
+      <ion-card class="card">
+        <ion-card-header class="rowHeader">
+          <b>{{todo.title}}</b>
+        </ion-card-header>
+
+        <ion-card-content>
+          <ion-row class="rowFirst">
+            <ion-col col-4>
+              <b>Start Date</b>
+            </ion-col>
+            <ion-col col-4>
+              <b>End Date</b>
+            </ion-col>
+            <ion-col col-4>
+              <b>Time Left</b>
+            </ion-col>
+          </ion-row>
+
+          <ion-row class="rowSecond">
+            <ion-col col-4>
+              {{todo.start | date: 'dd MMM yyyy' }}
+            </ion-col>
+            <ion-col col-4>
+              {{todo.end | date: 'dd MMM yyyy' }}
+            </ion-col>
+            <ion-col col-4>
+              {{todo.remaining}}
+            </ion-col>
+          </ion-row>
+        </ion-card-content>
+
+        <ion-row class="footer">
+          <ion-col col-1></ion-col>
+          <ion-col col-5 class="rowFirst">
+            <p>Status:<b color="black">Incomplete</b></p>
+          </ion-col>
+
+          <ion-col col-4>
+            <p>Tick if completed</p>
+          </ion-col>
+
+          <ion-col col-1>
+            <ion-checkbox mode="ios"></ion-checkbox>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+    </ion-list>
+  </div>
+</ion-content>
+
+<ion-footer class="footerColor">
+    <ion-fab bottom center>
+      <button ion-fab color="danger" (click)="nextPage()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-fab>
+</ion-footer>

@@ -1,0 +1,48 @@
+page-home {
+    ion-content{
+        background-color: rgb(227, 225, 225) !important;
+    }
+
+    .fabButton{
+        vertical-align: middle;
+        background-color: red($color:  red);
+        border-style: solid;
+        border-radius: 50%;
+        border-width: 2px;
+        border-color: red;
+    }
+
+    .footer{
+        background-color: rgb(194, 178, 159);
+        opacity: 0.5;
+        width: 100%;
+        height: 30px !important;
+    }
+
+    .card {
+        width: 98%;
+        margin-top: 1% !important;
+        margin: 0px 1%;
+        border-radius: 8px;
+        border-style: solid;
+        border-color: lightgray;
+        border-width: 2px;
+        background-color: rgb(254, 254, 254);
+      }
+
+    .rowHeader{
+        font-size:15px;
+        color:black;
+    }
+
+    .rowFirst{
+        font-size: 13px;
+        color: lightslategray;
+    }
+
+    .rowSecond{
+        font-size: 13px;
+        color: black;
+    }
+
+}

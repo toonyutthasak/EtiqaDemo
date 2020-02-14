@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Add new To-Do List</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div>
+    <ion-row class="rowHeader">
+      <b>To-Do Title</b>
+    </ion-row>
+    <ion-row>
+      <ion-item class="borderedInput">
+        <ion-textarea [(ngModel)]="todo.title" placeholder="Please key in your To-Do title here"></ion-textarea>
+      </ion-item>
+    </ion-row>
+
+    <ion-row class="rowHeader">
+      <b>Start Date</b>
+    </ion-row>
+
+    <ion-row class="rowHeader">
+      <ion-item class="borderedInputSmall">
+        <ion-datetime [(ngModel)]="todo.start"  placeholder="Select a date" displayFormat="D MMM YYYY">
+          {{todo.start}}
+        </ion-datetime>
+      </ion-item>
+    </ion-row>
+
+    <ion-row class="rowHeader">
+      <b>Estimate End Date</b>
+    </ion-row>
+
+    <ion-row class="rowHeader">
+      <ion-item class="borderedInputSmall">
+        <ion-datetime [(ngModel)]="todo.end" placeholder="Select a date" displayFormat="D MMM YYYY">
+          {{todo.end}}
+        </ion-datetime>
+      </ion-item>
+    </ion-row>
+  </div>
+
+</ion-content>
+
+<ion-footer>
+  <ion-row>
+    <ion-col class="sendButtonCol" col-12>
+      <button ion-button color="dark" full (click)="onSubmit()">Create Now</button>
+    </ion-col>
+  </ion-row>
+</ion-footer>
